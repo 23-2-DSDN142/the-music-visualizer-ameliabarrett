@@ -37,9 +37,25 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
   rect(980, 600, 100, 240); //14
   rect(1140, 500, 140, 460); //16
 
+
+  strokeWeight(5);
+  stroke(247, 84, 236);
+   var drumMap = map(drum, 0, 100, 5, 20);
+
+   for(var ii = 1; ii <=10; ii++); { 
+    var yStep = ii*50; //50
+    for(var i = 1; i <=10; i++){
+      ellipse(50 * i, yStep, drumMap);
+    }
+   }
+
   
   //draws 'lovesick' heart in
- scale(0.4); 
- image(heartImage, 730, -300);
+ scale(1); 
+ //image(heartImage, 730, -300);
+
+  //bass
+  let heartSize = map(bass, 0, 100, 730, 10);
+  image(heartImage, 730, 10, heartSize, heartSize);
 
 }
