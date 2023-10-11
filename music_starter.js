@@ -229,9 +229,20 @@ for (let ii = 1; ii <= 50; ii++) { // how many across x
   scale(4);
   image(cityScapeImage, 10, 68);
 
-  strokeWeight(8);
-  stroke(0);
-  line(200, 400, 200, 600);
+
+
+  //citylights
+  let otherMapTwo = map(other, 0, 100, 0, 5 );
+  let lightY = 320;
+  
+for (let ii = 1; ii <= 13; ii++) { // how many across x
+  let yLights = lightY + ii * 10;
+  for (let i = 1; i <= 5; i++) { //how many y 
+    noStroke();
+    fill(193, 177, 231);
+  rect(170, yLights , otherMapTwo, otherMapTwo);
+  }
+}
 
 }
 
