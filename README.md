@@ -5,5 +5,5 @@
 A P5JS framework for running a simple music visualizer, intended as a creative coding I assignment.
 
 Song details: 
-Title = Love$ick
-Artist = Mura Masa (ft. A$AP Rocky)
+Title = Starboy
+Artist = The Weeknd
