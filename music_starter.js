@@ -6,7 +6,6 @@ let bigCityScapeImage;
 
 
 function draw_one_frame(words, vocal, drum, bass, other, counter) {
- 
   //TOP HALF OF VISUALISER !!!!
 
   // BACKGROUND
@@ -16,11 +15,12 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
    gradient.addColorStop(0, color(32, 2, 87)); //Start at dark navy blue
    gradient.addColorStop(1, color(124 , 35 , 161)); //End at purple
    drawingContext.fillStyle = gradient;
+   noStroke();
    rect(0, 0, 1000, 900);
 
 
    // brightest stars
-let drumMap = map(other, 0, 100, 0, 5 );
+let otherMap = map(other, 0, 100, 0, 5 );
   
 for (let ii = 1; ii <= 50; ii++) { // how many across x
   let yStar = ii * 95;
@@ -28,7 +28,7 @@ for (let ii = 1; ii <= 50; ii++) { // how many across x
     noStroke();
     fill(193, 177, 231); 
     let r = random(100);
-    ellipse(100 * i + r, yStar + r , drumMap);
+    ellipse(100 * i + r, yStar + r , otherMap);
   }
 }
     
@@ -97,7 +97,7 @@ for (let ii = 1; ii <= 50; ii++) { // how many across x
   fill(27 , 10 , 71);
   rect(0, 900, 1000, 600);
 
-
+//moving lines
   let bassMap = map(bass, 0, 100, 5, 30);
   let lengthOfLine = 1000;
   let lineStart = 1;
@@ -110,10 +110,13 @@ for (let ii = 1; ii <= 50; ii++) { // how many across x
       line(lineStart, lineStep, lineEnd, lineStep);
    }
  
-
+   let drumMapFive = map(drum, 0, 100, 10, 25);
+   stroke(74, 229, 220, drumMapFive); 
+    
+   for(let i = 1; i <= drumMapFive; i++){  
     //HORIZONTAL grid ground
     strokeWeight(2);
-    stroke(74 , 229 , 220);
+    //stroke(74 , 229 , 220);
    line(0, 900, 1000, 900);
    line(0, 910, 1000, 910);
    line(0, 930, 1000, 930);
@@ -123,6 +126,7 @@ for (let ii = 1; ii <= 50; ii++) { // how many across x
    line(0, 1100, 1000, 1100);
    line(0, 1190, 1000, 1190);
    line(0, 1300, 1000, 1300);
+   }
  
 
 
@@ -136,20 +140,25 @@ for (let ii = 1; ii <= 50; ii++) { // how many across x
   endShape();
 
   //neon blue ROAD lines 
- 
-  strokeWeight(5);
-  stroke(74 , 229 , 220);
-  line(470, 900, 50, 1500); //left road
-  line(520, 900, 950, 1500); //right road
 
-  strokeWeight(5);
-  line(470, 900, 45, 1500); //makes left thicker
-  line(470, 900, 40, 1500); //makes left thicker
-  line(470, 900, 35, 1500); //makes left thicker
-  line(520, 900, 955, 1500); //makes right thicker
-  line(520, 900, 960, 1500); //makes right thicker
-  line(520, 900, 965, 1500); //makes right thicker
+  //DRUMS
+  let drumMap = map(drum, 0, 100, 10, 15);
+  stroke(78, 230, 220, drumMap); 
+   
+  for(let i = 1; i <= drumMap; i++){  
+    strokeWeight(5);
+    //stroke(74 , 229 , 220);
+    line(470, 900, 50, 1500); //left road
+    line(520, 900, 950, 1500); //right road
 
+    strokeWeight(5);
+     line(470, 900, 45, 1500); //makes left thicker
+     line(470, 900, 40, 1500); //makes left thicker
+    line(470, 900, 35, 1500); //makes left thicker
+    line(520, 900, 955, 1500); //makes right thicker
+    line(520, 900, 960, 1500); //makes right thicker
+    line(520, 900, 965, 1500); //makes right thicker
+}
 
   //ROAD CENTRE LINES
 
@@ -158,15 +167,17 @@ for (let ii = 1; ii <= 50; ii++) { // how many across x
   let thirdRoadArray = [1080, 1000];
   let fourthRoadArray = [960, 920];
 
-  for(let i = 0; i <=1; i++){
-    strokeWeight(10); //CLOSEST middle lines
-  line(320, closestRoadArray[0], 360, closestRoadArray[1]); 
-  line(680, closestRoadArray[0], 630, closestRoadArray[1]);
-  }
- 
+  let drumMapThree = map(drum, 0, 100, 10, 15);
+  stroke(78, 230, 220, drumMapThree); 
+   
+  for(let i = 1; i <= drumMapThree; i++){  
+     strokeWeight(10); //CLOSEST middle lines
+    line(320, closestRoadArray[0], 360, closestRoadArray[1]); 
+    line(680, closestRoadArray[0], 630, closestRoadArray[1]);
 
-  strokeWeight(7);  //2nd furtherest road lines
-  line(390, secondRoadArray[0], 420, secondRoadArray[1]);
+ 
+   strokeWeight(7);  //2nd furtherest road lines
+   line(390, secondRoadArray[0], 420, secondRoadArray[1]);
   line(605, secondRoadArray[0], 573, secondRoadArray[1]); 
 
   strokeWeight(3); //3rd furtherest road lines
@@ -176,11 +187,15 @@ for (let ii = 1; ii <= 50; ii++) { // how many across x
   strokeWeight(1); //4th furtherest road lines
   line(470, fourthRoadArray[0], 480, fourthRoadArray[1]); 
   line(520, fourthRoadArray[0], 510, fourthRoadArray[1]);
-
+}
 
   //VERTICAL grid ground
-  strokeWeight(2);
-  stroke(74 , 229 , 220);
+  let drumMapFour = map(drum, 0, 100, 10, 25);
+  stroke(78, 230, 220, drumMapFour); 
+   
+  for(let i = 1; i <= drumMapFour; i++){  
+     strokeWeight(2);
+  //stroke(74 , 229 , 220);
  // 5 left side lines
  line(50, 900, 0, 920);
  line(150, 900, 0, 965);
@@ -193,10 +208,7 @@ for (let ii = 1; ii <= 50; ii++) { // how many across x
   line(760, 900, 1000, 1040);
   line(850, 900, 1000, 965);
   line(950, 900, 1000, 920);
-
-
-
-
+  }
 
 
 
@@ -217,7 +229,9 @@ for (let ii = 1; ii <= 50; ii++) { // how many across x
   scale(4);
   image(cityScapeImage, 10, 68);
 
-  
+  strokeWeight(8);
+  stroke(0);
+  line(200, 400, 200, 600);
 
 }
 
