@@ -1,6 +1,7 @@
 let firstRun = true;
 let carNeonImage;
 let cityScapeImage;
+let bigCityScapeImage; 
 
 
 
@@ -149,21 +150,32 @@ for (let ii = 1; ii <= 50; ii++) { // how many across x
   line(520, 900, 960, 1500); //makes right thicker
   line(520, 900, 965, 1500); //makes right thicker
 
-  strokeWeight(10); //CLOSEST middle lines
-  line(320, 1500, 360, 1340); 
-  line(680, 1500, 630, 1340);
+
+  //ROAD CENTRE LINES
+
+  let closestRoadArray = [1500, 1340];
+  let secondRoadArray = [1260, 1140];
+  let thirdRoadArray = [1080, 1000];
+  let fourthRoadArray = [960, 920];
+
+  for(let i = 0; i <=1; i++){
+    strokeWeight(10); //CLOSEST middle lines
+  line(320, closestRoadArray[0], 360, closestRoadArray[1]); 
+  line(680, closestRoadArray[0], 630, closestRoadArray[1]);
+  }
+ 
 
   strokeWeight(7);  //2nd furtherest road lines
-  line(390, 1260, 420, 1140);
-  line(605, 1260, 573, 1140); 
+  line(390, secondRoadArray[0], 420, secondRoadArray[1]);
+  line(605, secondRoadArray[0], 573, secondRoadArray[1]); 
 
   strokeWeight(3); //3rd furtherest road lines
-  line(440, 1080, 462, 1000); 
-  line(555, 1080, 531, 1000); 
+  line(440, thirdRoadArray[0], 462, thirdRoadArray[1]); 
+  line(555, thirdRoadArray[0], 531, thirdRoadArray[1]); 
 
   strokeWeight(1); //4th furtherest road lines
-  line(470, 960, 480, 920); 
-  line(520, 960, 510, 920);
+  line(470, fourthRoadArray[0], 480, fourthRoadArray[1]); 
+  line(520, fourthRoadArray[0], 510, fourthRoadArray[1]);
 
 
   //VERTICAL grid ground
@@ -192,6 +204,7 @@ for (let ii = 1; ii <= 50; ii++) { // how many across x
   if (firstRun){
  carNeonImage = loadImage('carImage.png');
  cityScapeImage = loadImage('cityScape.png');
+ bigCityScapeImage = loadImage('bigCityScape.png');
  firstRun = false
   }
 
@@ -199,7 +212,12 @@ for (let ii = 1; ii <= 50; ii++) { // how many across x
   image(carNeonImage, 100 * 29 , 200 * 45);
 
   scale(4);
+  image(bigCityScapeImage, -50, -130);
+
+  scale(4);
   image(cityScapeImage, 10, 68);
+
+  
 
 }
 
