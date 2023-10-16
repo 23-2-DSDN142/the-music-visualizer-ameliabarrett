@@ -9,78 +9,41 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
   
   //FULL ALTERNATE FLASHING COLOR CHANGES IN SONG
 
-  if(song.currentTime() > 62.5){//do something
+  if(song.currentTime() > 62.5 || song.currentTime() > 73){//do something
     colorMode(HSB, 50); }
-  if(song.currentTime() > 62.75 ){//do something
+  if(song.currentTime() > 62.75 || song.currentTime() > 72.25 ){//do something
     colorMode(RGB, 200); }
-  if(song.currentTime() > 63 ){//do something
+  if(song.currentTime() > 63 || song.currentTime() > 72.5  ){//do something
     colorMode(HSB, 50); }
-if(song.currentTime() > 63.25 ){//do something
+if(song.currentTime() > 63.25 || song.currentTime() > 72.75 ){//do something
     colorMode(RGB, 200);}
- if(song.currentTime() > 63.5){//do something
+ if(song.currentTime() > 63.5 || song.currentTime() > 73){//do something
     colorMode(HSB, 50);}
-if(song.currentTime() > 63.75 ){//do something
+if(song.currentTime() > 63.75 || song.currentTime() > 73.25 ){//do something
     colorMode(RGB, 200); }
-if(song.currentTime() > 64 ){//do something
+if(song.currentTime() > 64 || song.currentTime() > 73.5){//do something
     colorMode(HSB, 50);}
-if(song.currentTime() > 64.25 ){//do something
+if(song.currentTime() > 64.25 || song.currentTime() > 74.75 ){//do something
     colorMode(RGB, 200); }
- if(song.currentTime() > 64.5 ){//do something
+ if(song.currentTime() > 64.5 || song.currentTime() > 75){//do something
     colorMode(HSB, 50); }
-if(song.currentTime() > 64.75 ){//do something
+if(song.currentTime() > 64.75 || song.currentTime() > 75.25 ){//do something
     colorMode(RGB, 200);}
-if(song.currentTime() > 65 ){//do something
+if(song.currentTime() > 65 || song.currentTime() > 75.5 ){//do something
     colorMode(HSB, 50); }
-if(song.currentTime() > 65.25 ){//do something
+if(song.currentTime() > 65.25 || song.currentTime() > 75.75 ){//do something
     colorMode(RGB, 200);}
-if(song.currentTime() > 65.5 ){//do something
+if(song.currentTime() > 65.5 || song.currentTime() > 76){//do something
     colorMode(HSB, 50); }
-if(song.currentTime() > 65.75 ){//do something
+if(song.currentTime() > 65.75 || song.currentTime() > 76.25 ){//do something
     colorMode(RGB, 200);}
-  if(song.currentTime() > 66 ){//do something
+  if(song.currentTime() > 66 || song.currentTime() > 76.5){//do something
     colorMode(HSB, 50);}
- if(song.currentTime() > 66.25 ){//do something
+ if(song.currentTime() > 66.25 || song.currentTime() > 76.75 ){//do something
     colorMode(RGB, 200);}
 
 
-    if(song.currentTime() > 72){//do something
-      colorMode(HSB, 50); }
-    if(song.currentTime() > 72.25 ){//do something
-      colorMode(RGB, 200); }
-    if(song.currentTime() > 72.5 ){//do something
-      colorMode(HSB, 50); }
-  if(song.currentTime() > 72.75 ){//do something
-      colorMode(RGB, 200);}
-   if(song.currentTime() > 73){//do something
-      colorMode(HSB, 50);}
-  if(song.currentTime() > 73.25 ){//do something
-      colorMode(RGB, 200); }
-  if(song.currentTime() > 73.5 ){//do something
-      colorMode(HSB, 50);}
-  if(song.currentTime() > 74.75 ){//do something
-      colorMode(RGB, 200); }
-   if(song.currentTime() > 75 ){//do something
-      colorMode(HSB, 50); }
-  if(song.currentTime() > 75.25 ){//do something
-      colorMode(RGB, 200);}
-  if(song.currentTime() > 75.5 ){//do something
-      colorMode(HSB, 50); }
-  if(song.currentTime() > 75.75 ){//do something
-      colorMode(RGB, 200);}
-  if(song.currentTime() > 76 ){//do something
-      colorMode(HSB, 50); }
-  if(song.currentTime() > 76.25 ){//do something
-      colorMode(RGB, 200);}
-    if(song.currentTime() > 76.5 ){//do something
-      colorMode(HSB, 50);}
-   if(song.currentTime() > 76.75 ){//do something
-      colorMode(RGB, 200);}
-
-
-
-
-
-
+    
   //TOP HALF OF VISUALISER !!!!
 
   // BACKGROUND
