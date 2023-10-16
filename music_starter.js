@@ -1,6 +1,5 @@
 let firstRun = true;
 let carNeonImage;
-let cityScapeImage;
 let bigCityScapeImage; 
 
 
@@ -9,8 +8,9 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
   //TOP HALF OF VISUALISER !!!!
 
   // BACKGROUND
-   background(5, 1, 36); //navy blue
+   background(5, 1, 36); // set to navy blue
 
+   //top gradient background
    let gradient = drawingContext.createLinearGradient(500, 0, 500, 720); //gradient bounds
    gradient.addColorStop(0, color(32, 2, 87)); //Start at dark navy blue
    gradient.addColorStop(1, color(124 , 35 , 161)); //End at purple
@@ -19,8 +19,8 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
    rect(0, 0, 1000, 900);
 
 
-   // brightest stars
-let otherMap = map(other, 0, 100, 0, 5 );
+   // brighter white stars
+let otherMap = map(other, 0, 100, 1, 5 );
   
 for (let ii = 1; ii <= 50; ii++) { // how many across x
   let yStar = ii * 95;
@@ -32,8 +32,8 @@ for (let ii = 1; ii <= 50; ii++) { // how many across x
   }
 }
     
-  //OTHER
-//stars
+  //'OTHER' VARIABLE
+//slightly dimmed stars to create 'twinkling' effect
 let drumMapTwo = map(other, 0, 100, 0, 6 );
   
 for (let ii = 1; ii <= 50; ii++) { // how many across x
@@ -53,29 +53,30 @@ for (let ii = 1; ii <= 50; ii++) { // how many across x
 }
 
  
-  // VOCALS
-  //background circle with lines cutting
+  // 'VOCAL' VARIABLE
+  //pink ellipse in background 
   let circleRadius = 250;
   
+  //lines cuting from centre downwards
   noStroke();
   fill(219 , 73 , 234); // 193, 177, 231 Pale whitey purple
   ellipse(width / 2, height / 2, circleRadius * 3, circleRadius * 3);
 
 
- let stripeWidth = map(vocal, 0, 100, 10, 90, true);
+ let stripeWidth = map(vocal, 0, 100, 10, 90, true); //line width changing
 
   let numStripes = height / stripeWidth;
   for(let i=0; i<numStripes; i=i+2) {
-  let cury = map(i, 0, numStripes-5, 700, height);
+  let stretch = map(i, 0, numStripes-5, 700, height);
    noStroke();
    fill(124 , 35 , 161); //purply color
-   rect(0, cury, width, vocal);
+   rect(0, stretch, width, vocal);
 }
 
-  //OTHER
+  //'OTHER' VARIABLE
 
   let ellipseSize = map(other, 0, 100, 0, 5);
-  //normal stars
+  //stationary white stars that scale to music
  noStroke();
  fill(193, 177, 231); 
  ellipse(150, 100, ellipseSize, ellipseSize);
@@ -91,13 +92,16 @@ for (let ii = 1; ii <= 50; ii++) { // how many across x
    
 
 
+
+
 //BOTTOM HALF OF VISUALISER
 
-  noStroke();
+// bottom ground background 
+noStroke();
   fill(27 , 10 , 71);
   rect(0, 900, 1000, 600);
 
-//moving lines
+// thinnest lines moving up and down
   let bassMap = map(bass, 0, 100, 5, 30);
   let lengthOfLine = 1000;
   let lineStart = 1;
@@ -109,14 +113,14 @@ for (let ii = 1; ii <= 50; ii++) { // how many across x
      lineStep +=10;
       line(lineStart, lineStep, lineEnd, lineStep);
    }
- 
    let drumMapFive = map(drum, 0, 100, 10, 25);
    stroke(74, 229, 220, drumMapFive); 
-    
-   for(let i = 1; i <= drumMapFive; i++){  
+     for(let i = 1; i <= drumMapFive; i++){  
+   
+   
+
     //HORIZONTAL grid ground
     strokeWeight(2);
-    //stroke(74 , 229 , 220);
    line(0, 900, 1000, 900);
    line(0, 910, 1000, 910);
    line(0, 930, 1000, 930);
@@ -129,9 +133,9 @@ for (let ii = 1; ii <= 50; ii++) { // how many across x
    }
  
 
-
+//BLUE perspective road in centre of bottom half
   noStroke();
-  fill(31 , 8 , 160); //BLUE road 
+  fill(31 , 8 , 160); 
   beginShape();
   vertex(50, 1500);
   vertex(470, 900);
@@ -139,18 +143,16 @@ for (let ii = 1; ii <= 50; ii++) { // how many across x
   vertex(950, 1500);
   endShape();
 
-  //neon blue ROAD lines 
-
-  //DRUMS
+  //DRUM' VARIABLE
+  //neon blue ROAD outline
   let drumMap = map(drum, 0, 100, 10, 15);
   stroke(78, 230, 220, drumMap); 
    
+ //perspective thickness of road outline
   for(let i = 1; i <= drumMap; i++){  
     strokeWeight(5);
-    //stroke(74 , 229 , 220);
     line(470, 900, 50, 1500); //left road
     line(520, 900, 950, 1500); //right road
-
     strokeWeight(5);
      line(470, 900, 45, 1500); //makes left thicker
      line(470, 900, 40, 1500); //makes left thicker
@@ -189,13 +191,15 @@ for (let ii = 1; ii <= 50; ii++) { // how many across x
   line(520, fourthRoadArray[0], 510, fourthRoadArray[1]);
 }
 
+
+
+
   //VERTICAL grid ground
   let drumMapFour = map(drum, 0, 100, 10, 25);
   stroke(78, 230, 220, drumMapFour); 
    
   for(let i = 1; i <= drumMapFour; i++){  
      strokeWeight(2);
-  //stroke(74 , 229 , 220);
  // 5 left side lines
  line(50, 900, 0, 920);
  line(150, 900, 0, 965);
@@ -221,37 +225,9 @@ for (let ii = 1; ii <= 50; ii++) { // how many across x
   }
 
   scale(0.12);
-  image(carNeonImage, 100 * 29 , 200 * 45);
+  image(carNeonImage, 100 * 29 , 200 * 45); //car drawing
 
   scale(4);
-  image(bigCityScapeImage, -50, -130);
-
-  scale(4);
-  image(cityScapeImage, 10, 68);
-
-
-
-  //citylights
-  let otherMapTwo = map(other, 0, 100, 0, 5 );
-  let lightY = 320;
-  
-for (let ii = 1; ii <= 13; ii++) { // how many across x
-  let yLights = lightY + ii * 10;
-  for (let i = 1; i <= 5; i++) { //how many y 
-    noStroke();
-    fill(193, 177, 231);
-  rect(170, yLights , otherMapTwo, otherMapTwo);
-  }
-}
+  image(bigCityScapeImage, -50, -130); //cityscape drawing
 
 }
-
-
-
-
-
- 
-
-  // VOCALS
-  
-  // OTHER
