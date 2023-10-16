@@ -5,12 +5,89 @@ let bigCityScapeImage;
 
 
 function draw_one_frame(words, vocal, drum, bass, other, counter) {
+  colorMode(RGB, 200);
+  
+  //FULL ALTERNATE FLASHING COLOR CHANGES IN SONG
+
+  if(song.currentTime() > 62.5){//do something
+    colorMode(HSB, 50); }
+  if(song.currentTime() > 62.75 ){//do something
+    colorMode(RGB, 200); }
+  if(song.currentTime() > 63 ){//do something
+    colorMode(HSB, 50); }
+if(song.currentTime() > 63.25 ){//do something
+    colorMode(RGB, 200);}
+ if(song.currentTime() > 63.5){//do something
+    colorMode(HSB, 50);}
+if(song.currentTime() > 63.75 ){//do something
+    colorMode(RGB, 200); }
+if(song.currentTime() > 64 ){//do something
+    colorMode(HSB, 50);}
+if(song.currentTime() > 64.25 ){//do something
+    colorMode(RGB, 200); }
+ if(song.currentTime() > 64.5 ){//do something
+    colorMode(HSB, 50); }
+if(song.currentTime() > 64.75 ){//do something
+    colorMode(RGB, 200);}
+if(song.currentTime() > 65 ){//do something
+    colorMode(HSB, 50); }
+if(song.currentTime() > 65.25 ){//do something
+    colorMode(RGB, 200);}
+if(song.currentTime() > 65.5 ){//do something
+    colorMode(HSB, 50); }
+if(song.currentTime() > 65.75 ){//do something
+    colorMode(RGB, 200);}
+  if(song.currentTime() > 66 ){//do something
+    colorMode(HSB, 50);}
+ if(song.currentTime() > 66.25 ){//do something
+    colorMode(RGB, 200);}
+
+
+    if(song.currentTime() > 72){//do something
+      colorMode(HSB, 50); }
+    if(song.currentTime() > 72.25 ){//do something
+      colorMode(RGB, 200); }
+    if(song.currentTime() > 72.5 ){//do something
+      colorMode(HSB, 50); }
+  if(song.currentTime() > 72.75 ){//do something
+      colorMode(RGB, 200);}
+   if(song.currentTime() > 73){//do something
+      colorMode(HSB, 50);}
+  if(song.currentTime() > 73.25 ){//do something
+      colorMode(RGB, 200); }
+  if(song.currentTime() > 73.5 ){//do something
+      colorMode(HSB, 50);}
+  if(song.currentTime() > 74.75 ){//do something
+      colorMode(RGB, 200); }
+   if(song.currentTime() > 75 ){//do something
+      colorMode(HSB, 50); }
+  if(song.currentTime() > 75.25 ){//do something
+      colorMode(RGB, 200);}
+  if(song.currentTime() > 75.5 ){//do something
+      colorMode(HSB, 50); }
+  if(song.currentTime() > 75.75 ){//do something
+      colorMode(RGB, 200);}
+  if(song.currentTime() > 76 ){//do something
+      colorMode(HSB, 50); }
+  if(song.currentTime() > 76.25 ){//do something
+      colorMode(RGB, 200);}
+    if(song.currentTime() > 76.5 ){//do something
+      colorMode(HSB, 50);}
+   if(song.currentTime() > 76.75 ){//do something
+      colorMode(RGB, 200);}
+
+
+
+
+
+
   //TOP HALF OF VISUALISER !!!!
 
   // BACKGROUND
    background(5, 1, 36); // set to navy blue
 
    //top gradient background
+   //used website referenced in Process Doc to learn this: 
    let gradient = drawingContext.createLinearGradient(500, 0, 500, 720); //gradient bounds
    gradient.addColorStop(0, color(32, 2, 87)); //Start at dark navy blue
    gradient.addColorStop(1, color(124 , 35 , 161)); //End at purple
@@ -173,13 +250,14 @@ noStroke();
   stroke(78, 230, 220, drumMapThree); 
    
   for(let i = 1; i <= drumMapThree; i++){  
+
      strokeWeight(10); //CLOSEST middle lines
     line(320, closestRoadArray[0], 360, closestRoadArray[1]); 
     line(680, closestRoadArray[0], 630, closestRoadArray[1]);
 
  
    strokeWeight(7);  //2nd furtherest road lines
-   line(390, secondRoadArray[0], 420, secondRoadArray[1]);
+   line(390, secondRoadArray[0], 420, secondRoadArray[1] );
   line(605, secondRoadArray[0], 573, secondRoadArray[1]); 
 
   strokeWeight(3); //3rd furtherest road lines
@@ -229,5 +307,7 @@ noStroke();
 
   scale(4);
   image(bigCityScapeImage, -50, -130); //cityscape drawing
+
+
 
 }
